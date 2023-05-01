@@ -1,7 +1,7 @@
-function ListGroup() {
-  const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
-  return (
+const CITIES = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+
+const ListGroup = ({list = cities}) =>  (
     <>
       <h1>List</h1>
       <ul className="list-group">
@@ -11,6 +11,5 @@ function ListGroup() {
       </ul>
     </>
   );
-}
 
 export default ListGroup;
