@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 
 const CITIES = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
@@ -21,7 +21,17 @@ const getMessage = () => {
 // Event Handler
 const handleClick = (event : MouseEvent) => console.log(event);
 
+// let selectedIndex = -1;
+// I want this variable to be a state of this component, and its value will change over time
+// So we use a hook with function useState()
+// const arr = useState(-1);
+// arr[0] // variable (selectedIndex)
+// arr[1] // updater function
+
 function ListGroup2() {
+  
+const [selectedIndex, setSelectedIndex] = useState(-1);
+
   return (
     <>
       <h1>List</h1>
@@ -32,10 +42,11 @@ function ListGroup2() {
       <ul className="list-group">
         {CITIES.map((item, index) => (
           <li
-            className="list-group-item"
+            className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
             key={item}
-            /* onClick={() => console.log("Clicked " + item + " at index " + index)} */
-            onClick={handleClick}
+            // onClick={() => console.log("Clicked " + item + " at index " + index)}
+            // onClick={handleClick}
+            onClick={() => {setSelectedIndex(index);} }
           >
             {item}
           </li>
