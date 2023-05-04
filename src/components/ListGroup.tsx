@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 const CITIES = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
 // const ListGroup = ({ list = CITIES }) => (
@@ -16,6 +18,9 @@ const getMessage = () => {
   return CITIES.length === 0 ? <p>List is empty</p> : null;
 }; // a function is better when we pass parameters from the other function
 
+// Event Handler
+const handleClick = (event : MouseEvent) => console.log(event);
+
 function ListGroup2() {
   return (
     <>
@@ -30,6 +35,7 @@ function ListGroup2() {
             className="list-group-item"
             key={item}
             /* onClick={() => console.log("Clicked " + item + " at index " + index)} */
+            onClick={handleClick}
           >
             {item}
           </li>
