@@ -1,15 +1,42 @@
-
 const CITIES = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
-const ListGroup = ({list = cities}) =>  (
+// const ListGroup = ({ list = CITIES }) => (
+//   <>
+//     <h1>List</h1>
+//     <ul className="list-group">
+//       {list.map((list) => (
+//         <li key={list}> {list} </li>
+//       ))}
+//     </ul>
+//   </>
+// );
+
+const message = CITIES.length === 0 ? <p>List is empty</p> : null;
+const getMessage = () => {
+  return CITIES.length === 0 ? <p>List is empty</p> : null;
+}; // a function is better when we pass parameters from the other function
+
+function ListGroup2() {
+  return (
     <>
       <h1>List</h1>
+      {/* {message} */}
+      {/* {getMessage()} */}
+      {CITIES.length === 0 && <p>List is empty</p>}
+
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {CITIES.map((item, index) => (
+          <li
+            className="list-group-item"
+            key={item}
+            /* onClick={() => console.log("Clicked " + item + " at index " + index)} */
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </>
   );
+}
 
-export default ListGroup;
+export default ListGroup2;

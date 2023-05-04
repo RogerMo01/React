@@ -1,7 +1,7 @@
-import ListGroup from "./components/ListGroup";
+import ListGroup2 from "./components/ListGroup";
 
 function App() {
-  return <div><ListGroup /></div>;
+  return <div><ListGroup2 /></div>;
 }
 
 export default App;
